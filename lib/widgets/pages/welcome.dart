@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 25, left: 10, right: 10),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/welcome_background.jpg"),
           fit: BoxFit.cover,
@@ -18,7 +20,7 @@ class WelcomePage extends StatelessWidget {
           children: [
             RichText(
               textDirection: TextDirection.ltr,
-              text: TextSpan(
+              text: const TextSpan(
                 text:
                     "StepUp - это ваш надежный спутник для здорового образа жизни и активности. Это мощное приложение-шагомер, которое поможет вам следить за вашей физической активностью и достигать ваших фитнес-целей.",
                 style: TextStyle(
@@ -30,10 +32,10 @@ class WelcomePage extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               alignment: Alignment.topCenter,
               child: OutlinedButton(
-                child: Text("Регистрация"),
+                child: const Text("Регистрация"),
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 },
@@ -41,10 +43,10 @@ class WelcomePage extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               alignment: Alignment.topCenter,
               child: OutlinedButton(
-                child: Text("Авторизация"),
+                child: const Text("Авторизация"),
                 onPressed: () {
                   Navigator.pushNamed(context, '/auth');
                 },

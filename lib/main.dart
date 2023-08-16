@@ -4,17 +4,19 @@ import './widgets/pages/auth.dart';
 import './widgets/pages/login.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'StepUp',
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => WelcomePage(),
+        '/': (BuildContext context) => const WelcomePage(),
         '/auth': (BuildContext context) => const AuthPage(),
         '/login': (BuildContext context) => const LoginPage(),
       },
