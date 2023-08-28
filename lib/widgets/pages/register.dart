@@ -8,6 +8,10 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterState extends State<RegisterPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  bool isValidEmail = true;
+  bool isValidPassword = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +34,13 @@ class _RegisterState extends State<RegisterPage> {
               Padding(
                 padding: EdgeInsets.only(top:180, left: 15.0, right: 15.0),
                 child: TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(width: 1, color: Colors.black),
                     ),
-                    labelText: 'Почта',
+                    labelText: isValidEmail ? 'Почта':'Неверная электронная почта',
                     labelStyle: TextStyle(color: Colors.black),
                     hintText: 'Введите электронную почту',
                   ),
@@ -45,12 +50,13 @@ class _RegisterState extends State<RegisterPage> {
                 padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15),
                 child: TextField(
                   obscureText: true,
+                  controller:passwordController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(width: 1, color: Colors.black),
                     ),
-                    labelText: 'Пароль',
+                    labelText: isValidPassword ? 'Пароль':'Слишком короткий пароль',
                     labelStyle: TextStyle(color: Colors.black),
                     hintText: 'Введите пароль',
                   ),
@@ -59,11 +65,24 @@ class _RegisterState extends State<RegisterPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 25),
                 child:OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                    .hasMatch(emailController.text);
+                    if (!emailValid) {
+                      setState(() {
+                        isValidEmail = false;
+                      });
+                    }
+                    if (passwordController.text.length < 8) {
+                      setState(() {
+                        isValidPassword = false;
+                      });
+                    }
+                  },
                   child: const Text('Создать аккаунт'),
                   style: OutlinedButton.styleFrom(
                     primary: Colors.black,
-                ))
+                  )),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15),
