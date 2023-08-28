@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -77,6 +77,11 @@ class _RegisterState extends State<RegisterPage> {
                       setState(() {
                         isValidPassword = false;
                       });
+                    }
+                    if (isValidEmail && isValidPassword) {
+                      // var url = Uri.https('backend/register');
+                      // var response = http.post(url, body: {'email': emailController.text, 'password': passwordController.text});
+                      Navigator.pushNamed(context, '/confirm_email');
                     }
                   },
                   child: const Text('Создать аккаунт'),

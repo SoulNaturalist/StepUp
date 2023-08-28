@@ -3,6 +3,7 @@ import 'widgets/pages/welcome.dart';
 import './widgets/pages/register.dart';
 import './widgets/pages/login.dart';
 import './widgets/pages/stats.dart';
+import './widgets/pages/confirm_email.dart';
 
 
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/': (BuildContext context) => const WelcomePage(),
         '/register': (BuildContext context) => RegisterPage(),
         '/login': (BuildContext context) => const LoginPage(),
+        '/confirm_email': (BuildContext context) => const ConfirmEmail(),
         '/stats': (BuildContext context) => const StatsPage()
       },
     );
