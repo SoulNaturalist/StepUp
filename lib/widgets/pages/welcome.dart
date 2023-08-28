@@ -39,7 +39,7 @@ class WelcomePage extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(255, 253, 219, 146)),
                 child: const Text("Регистрация"),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/login');
+                  Navigator.pushNamed(context, '/register');
                 },
               ),
             ),
@@ -52,7 +52,7 @@ class WelcomePage extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(255, 253, 219, 146)),
                 child: const Text("Авторизация"),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/auth');
+                  Navigator.pushNamed(context, '/login');
                 },
               ),
             ),
