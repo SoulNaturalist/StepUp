@@ -3,6 +3,8 @@ import 'package:flutter/gestures.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -17,9 +19,9 @@ class _RegisterState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Регистрация"),
+        title: const Text("Регистрация"),
         leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pushNamed(context, '/');
             },
@@ -32,16 +34,21 @@ class _RegisterState extends State<RegisterPage> {
           Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top:180, left: 15.0, right: 15.0),
+                padding: const EdgeInsets.only(top:180, left: 15.0, right: 15.0),
                 child: TextField(
                   controller: emailController,
+                  onChanged: (value) {
+                    setState(() {
+                      isValidEmail = true;
+                    });
+                  },
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder(
+                    border: const OutlineInputBorder(),
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1, color: Colors.black),
                     ),
                     labelText: isValidEmail ? 'Почта':'Неверная электронная почта',
-                    labelStyle: TextStyle(color: Colors.black),
+                    labelStyle: const TextStyle(color: Colors.black),
                     hintText: 'Введите электронную почту',
                   ),
                 ),
@@ -51,13 +58,18 @@ class _RegisterState extends State<RegisterPage> {
                 child: TextField(
                   obscureText: true,
                   controller:passwordController,
+                  onChanged: (value) {
+                    setState(() {
+                      isValidPassword = true;
+                    });
+                  },
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    focusedBorder: OutlineInputBorder(
+                    border: const OutlineInputBorder(),
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(width: 1, color: Colors.black),
                     ),
                     labelText: isValidPassword ? 'Пароль':'Слишком короткий пароль',
-                    labelStyle: TextStyle(color: Colors.black),
+                    labelStyle: const TextStyle(color: Colors.black),
                     hintText: 'Введите пароль',
                   ),
                 ),
@@ -84,16 +96,16 @@ class _RegisterState extends State<RegisterPage> {
                       Navigator.pushNamed(context, '/confirm_email');
                     }
                   },
-                  child: const Text('Создать аккаунт'),
                   style: OutlinedButton.styleFrom(
-                    primary: Colors.black,
-                  )),
+                    foregroundColor: Colors.black,
+                  ),
+                  child: const Text('Создать аккаунт')),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15),
                 child: RichText(
                   text: TextSpan(
-                  style: TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.black),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Уже есть аккаунт',
