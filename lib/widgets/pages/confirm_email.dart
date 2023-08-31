@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class ConfirmEmail extends StatefulWidget {
   const ConfirmEmail({ Key? key }) : super(key: key);
@@ -10,11 +12,15 @@ class ConfirmEmail extends StatefulWidget {
 class _ConfirmEmailState extends State<ConfirmEmail> {
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Scaffold(
+      body:Column(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(top: 140),
-          child:Image.network("https://cdn-icons-png.flaticon.com/512/1/1284.png",width:150)
+        const Padding(
+          padding: EdgeInsets.only(top: 140),//confirm_email.png
+          child:Image(
+      image: AssetImage("assets/images/confirm_email.png"),
+      width: 150,
+    ),
         ),
         Padding(
                 padding: const EdgeInsets.only(top: 60),
@@ -31,6 +37,6 @@ class _ConfirmEmailState extends State<ConfirmEmail> {
               ),
         ),
       ],
-    );
+    ));
   }
 }

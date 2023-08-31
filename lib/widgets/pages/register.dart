@@ -93,7 +93,7 @@ class _RegisterState extends State<RegisterPage> {
                     if (isValidEmail && isValidPassword) {
                       // var url = Uri.https('backend/register');
                       // var response = http.post(url, body: {'email': emailController.text, 'password': passwordController.text});
-                      Navigator.pushNamed(context, '/confirm_email');
+                      Navigator.pushReplacementNamed(context, '/confirm_email');
                     }
                   },
                   style: OutlinedButton.styleFrom(

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key});
@@ -90,8 +93,9 @@ class _LoginPage extends State<LoginPage> {
                       });
                     }
                     if (isValidEmail && isValidPassword) {
-                      // var url = Uri.https('backend/register');
+                      // var url = Uri.https('backend/login');
                       // var response = http.post(url, body: {'email': emailController.text, 'password': passwordController.text});
+                      // get and save jwt token
                       Navigator.pushNamed(context, '/stats');
                     }
                   },
