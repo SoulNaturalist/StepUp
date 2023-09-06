@@ -125,3 +125,5 @@ class _RegisterState extends State<RegisterPage> {
     );
   }
 }
+//export ANDROID_SDK_ROOT=/home/sqzlo/Android/Sdk
+//

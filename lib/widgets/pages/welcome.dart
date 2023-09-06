@@ -50,7 +50,7 @@ class WelcomePage extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 253, 219, 146)),
-                child: const Text("Авторизация"),
+                child: const Text("Вход"),
                 onPressed: () {
                   Navigator.pushNamed(context, '/login');
                 },

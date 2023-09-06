@@ -102,7 +102,7 @@ class _LoginPage extends State<LoginPage> {
                   style: OutlinedButton.styleFrom(
                     foregroundColor: Colors.black,
                   ),
-                  child: const Text('Создать аккаунт'),
+                  child: const Text('Войти'),
                 ),
               ),
             ],
